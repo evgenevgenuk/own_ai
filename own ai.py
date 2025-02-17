@@ -3,6 +3,7 @@ import PyPDF2
 import pandas as pd
 import json
 import os
+from googlesearch import search  # Для пошуку в Google
 
 class AIApp:
     def __init__(self, master):
@@ -32,6 +33,13 @@ class AIApp:
 
         self.send_button = tk.Button(master, text="Відправити", command=self.send_message)
         self.send_button.pack()
+
+        # Віджет для пошуку в Google
+        self.search_entry = tk.Entry(master, width=50)
+        self.search_entry.pack()
+
+        self.search_button = tk.Button(master, text="Загуглити", command=self.search_google)
+        self.search_button.pack()
 
         self.knowledge_base = {}  # Словник для зберігання знань
         self.load_knowledge()  # Завантажити знання з файлу
@@ -96,6 +104,20 @@ class AIApp:
         self.chat_display.insert(tk.END, message + "\n")  # Додати повідомлення
         self.chat_display.config(state='disabled')  # Заборонити редагування
         self.chat_display.see(tk.END)  # Прокрутити вниз
+
+    def search_google(self):
+        query = self.search_entry.get()
+        if query:
+            self.display_message("AI: Шукаю в Google...")
+            try:
+                search_results = search(query, num_results=3)  # Ліміт на 3 результати
+                if search_results:
+                    for result in search_results:
+                        self.display_message("AI: " + result)
+                else:
+                    self.display_message("AI: Вибачте, нічого не знайдено.")
+            except Exception as e:
+                self.display_message(f"Помилка під час пошуку: {str(e)}")
 
     def save_knowledge(self):
         with open('knowledge.json', 'w', encoding='utf-8') as f:

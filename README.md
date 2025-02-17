@@ -12,4 +12,5 @@ This is just a bot that you have to train. I specially added the PDF download fu
 
 
 
-``` pip install tk PyPDF2 pandas json5 ```
+``` pip install tk PyPDF2 pandas json5 googlesearch-python
+ ```
