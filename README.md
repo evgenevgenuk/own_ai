@@ -9,3 +9,7 @@ This is just a bot that you have to train. I specially added the PDF download fu
 ![Ukrainian](https://img.shields.io/static/v1?label=%20&message=Ukrainian&labelColor=1f5fb2&color=fad247&style=for-the-badge)
 
 це просто бот який ви маєте навчати я спеціально добав функцію загрузки пдф шоб в літаку вас був аналог чату гпт без інтернета
+
+
+
+``` pip install tk PyPDF2 pandas json5 ```
