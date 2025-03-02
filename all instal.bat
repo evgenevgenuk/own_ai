@@ -39,7 +39,7 @@ cd own_ai
 
 :: Встановлення необхідних бібліотек
 echo Встановлюю бібліотеки...
-pip install tk PyPDF2 pandas googlesearch-python
+pip install tk PyPDF2 pandas pyttsx3 googlesearch-python openai difflib
 
 :: Запуск Python-скрипта own ai.py
 echo Запуск own ai.py...
